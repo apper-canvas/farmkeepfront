@@ -5,6 +5,8 @@
 /* Import react-toastify CSS */
 @import 'react-toastify/dist/ReactToastify.css';
 
+/* Import react-datepicker CSS */
+@import 'react-datepicker/dist/react-datepicker.css';
 /* Ensure scrollbars are visible */
 body {
   overflow-y: auto;
