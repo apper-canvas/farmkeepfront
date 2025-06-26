@@ -1,13 +1,13 @@
-import { useState, useCallback } from 'react';
-import ApperIcon from '@/components/ApperIcon';
+import React, { useCallback, useState } from "react";
+import ApperIcon from "@/components/ApperIcon";
 
-const Input = ({ 
-  label, 
-  type = 'text', 
-  placeholder, 
-  value = '', 
-  onChange, 
-  error, 
+const Input = ({
+  type = "text",
+  placeholder,
+  value,
+  onChange,
+  label,
+  error,
   required = false,
   disabled = false,
   icon,

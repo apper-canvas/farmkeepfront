@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import ApperIcon from '@/components/ApperIcon';
+import React, { useState } from "react";
+import ApperIcon from "@/components/ApperIcon";
 
 const Select = ({
   label,
@@ -13,11 +13,18 @@ const Select = ({
   className = '',
   ...props
 }) => {
-const handleChange = (e) => {
-    if (onChange) {
-      onChange(e);
+  function handleChange(e) {
+    // Defensive check for event target
+    if (!e || !e.target) {
+      console.warn('Invalid event passed to Select handleChange');
+      return;
     }
-  };
+    
+    const { value = '' } = e.target;
+    if (onChange) {
+      onChange(value);
+    }
+  }
 return (
     <div className={`${className}`}>
       {/* Label positioned outside select */}

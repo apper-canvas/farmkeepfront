@@ -46,8 +46,21 @@ const CropForm = ({ crop = null, onSave, onCancel }) => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+const handleChange = (e) => {
+    // Defensive check for event target
+    if (!e || !e.target) {
+      console.warn('Invalid event passed to handleChange');
+      return;
+    }
+    
+    const { name = '', value = '' } = e.target;
+    
+    // Ensure we have a valid name before updating
+    if (!name) {
+      console.warn('Event target missing name attribute');
+      return;
+    }
+    
     setFormData(prev => ({ ...prev, [name]: value }));
     
     // Clear error when user starts typing
